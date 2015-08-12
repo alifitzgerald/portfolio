@@ -1,46 +1,45 @@
 <!DOCTYPE html>
-<html ng-app="scotchTodo">
+<html ng-app="portfolio">
 <head>
   <% include ../partials/header.ejs %>
 </head>
 
-<body>
+<body ng-controller="MainCtrl">
 
  
 
 <div class="jumbotron text-center">
   <div class="container">
     <div class="col-md-12">
-     <img src="/my-name-3.png">
+     <a href="#" ng-click="setCurrentCategory(null)"><img src="/images/my-name-3.png"></a>
     </div>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><i class="fa fa-twitter"></i></a>
+    <a type="button" class="btn btn-lg btn-default" href="https://github.com/heroku/node-js-getting-started"><i class="fa fa-github"></i></a>
+     <a type="button" class="btn btn-lg btn-default" href="https://github.com/heroku/node-js-getting-started"><i class="fa fa-envelope-o"></i></a>
   </div>
 </div>
-<div class="container">
- 
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li><p>Nothing here {{'yet' + '!'}}</p></li>
-      </ul>
+
+<div class="bgimage">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-tabs nav-justified">
+          <li ng-repeat="category in categories" ng-class="{'active':isCurrentCategory(category)}">
+            <a ng-click="setCurrentCategory(category)">{{category.name}}</a>
+          </li>s
+        </ul>
+      </div>
+      <div ng-repeat="frame in frames | filter:{category:currentCategory.name}">
+      <div ng-include="frame.url"></div> 
+        
+      </div>
     </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
   </div>
 </div>
+
+
+    <!-- video block goes here -->
+
 
 
 </body>

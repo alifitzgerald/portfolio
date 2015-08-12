@@ -25,3 +25,63 @@
     .jumbotron .lang-logo img {
       max-width: 100%; }
 
+ .bgimage {
+  overflow: scroll; 
+  font-family: 'Oxygen', sans-serif;
+ }
+
+ .bgimage a {
+  font-size: 1.2em;
+  color: #56001B;
+ }
+
+ .description li {
+    list-style: none;
+    margin-top: 45%
+ }
+
+ .description p {
+  font-size: 1.5em;
+ }
+
+ .thumb {
+  width: 50%;
+ }
+
+ .grid {
+    width: 100%;
+    height: auto;
+ }
+
+
+
+.slide-animate {
+  padding:10px;
+}
+
+.slide-animate.ng-enter, .slide-animate.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+ 
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px;
+}
+
+.slide-animate.ng-enter {
+  left:-50px;
+}
+.slide-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+
+.slide-animate.ng-leave {
+  left:0;
+}
+.slide-animate.ng-leave.ng-leave-active {
+  left:50px;
+}
+

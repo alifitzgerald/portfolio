@@ -1,0 +1,24 @@
+
+<div class="container slider" ng-controller="MainCtrl">
+  <div class="row">
+    <div class="col-md-10">
+
+    <img ng-repeat="photo in photos | filter:{category:currentCategory.name}" class="slide slide-animation nonDraggableImage thumb"
+         ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+         ng-hide="!isCurrentSlideIndex($index)" ng-src="{{photo.photo}}">
+
+    <a class="arrow prev" ng-click="nextSlide()"><i class="fa fa-angle-right fa-4x"></i></a>
+    <a class="arrow next" ng-click="prevSlide()"></a>
+    <nav class="nav">
+        <div class="wrapper">
+            <ul class="dots">
+                <li class="dot" ng-repeat="slide in slides">
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                       ng-click="setCurrentSlideIndex($index);">{{photo.id}}</a></li>
+            </ul>
+        </div>
+    </nav>
+    </div>
+    </div>
+</div>
+</div>
