@@ -1,5 +1,10 @@
 .jumbotron {
-  background: #E30046;
+  background: -webkit-linear-gradient(90deg, #616161 10%, #9bc5c3 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #616161 10%, #9bc5c3 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #616161 10%, #9bc5c3 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #616161 10%, #9bc5c3 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #616161 10%, #9bc5c3 90%); /* W3C */
+        
   color: white;
   padding-bottom: 80px; }
   .jumbotron .btn-primary {
@@ -32,7 +37,7 @@
 
  .bgimage a {
   font-size: 1.2em;
-  color: #56001B;
+  color: #616161;
  }
 
  .description li {
@@ -45,7 +50,11 @@
  }
 
  .thumb {
-  width: 50%;
+  width: 100%;
+ }
+
+ .height {
+  height: 50%;
  }
 
  .grid {
@@ -60,15 +69,15 @@
 }
 
 .slide-animate.ng-enter, .slide-animate.ng-leave {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
 
  
   top:0;
   left:0;
   right:0;
   bottom:0;
-  padding:10px;
+  padding:0px;
 }
 
 .slide-animate.ng-enter {
@@ -93,10 +102,16 @@
 
 .dots {
   list-style: none; 
-  color: #96002E;
+  color: #616161;
+  font-size: 1.2em; 
 }
 
 .area {
   padding-bottom: 5%; 
 }
+
+.arrow {
+  color: #CFCFCF;
+}
+
 

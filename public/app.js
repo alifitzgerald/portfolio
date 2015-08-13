@@ -65,15 +65,18 @@ myapp.controller('MainCtrl', function($scope) {
         $scope.photos = [
             {"id": 0,
             "photo":"images/bowl-xtra.png",
-            "name": "Canteen & Co."
+            "name": "Canteen & Co.", 
+            "description": "Angularjs // Node // Express // Bootstrap"
             },
             {"id": 1,
             "photo":"images/dog-xtra.png",
-            "name" : "Swag Dog Walking"   
+            "name" : "Swag Dog Walking",
+            "description": "RubyRails // Foundation"   
             },
             {"id": 2,
             "photo":"images/rbggame-xtra.png" ,
-            "name" : "Notorious RBGGame"  
+            "name" : "Notorious RBGGame",
+            "description": "Swift"  
             }
         ];
   
@@ -91,22 +94,9 @@ myapp.controller('MainCtrl', function($scope) {
         }
 
 
-        function setCurrentPhoto(photo) {
-            $scope.currentPhoto = photo;
-        }
-
-        function isCurrentPhoto(photo) {
-            return $scope.currentPhoto !== null && photo.name === $scope.currentPhoto.name;
-        }
-
-
         $scope.currentCategory = null; 
         $scope.setCurrentCategory = setCurrentCategory;
         $scope.isCurrentCategory = isCurrentCategory;
-
-        $scope.currentPhoto = null; 
-        $scope.setCurrentPhoto = setCurrentPhoto;
-        $scope.isCurrentPhoto = isCurrentPhoto;
 
 
         $scope.direction = 'left';
@@ -131,7 +121,7 @@ myapp.controller('MainCtrl', function($scope) {
             $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.photos.length - 1;
         };
     })
-    myapp.animation('.slide-animation', function () {
+    myapp.animation('.slide-animate', function () {
         return {
             beforeAddClass: function (element, className, done) {
                 var scope = element.scope();
@@ -141,7 +131,8 @@ myapp.controller('MainCtrl', function($scope) {
                     if(scope.direction !== 'right') {
                         finishPoint = -finishPoint;
                     }
-                    TweenMax.to(element, 0.3, {left: finishPoint, onComplete: done });
+                    TweenMax.to(element, 0.4, Elastic.easeInOut, {left: finishPoint, onComplete: done });
+                    
                 }
                 else {
                     done();
@@ -158,7 +149,8 @@ myapp.controller('MainCtrl', function($scope) {
                         startPoint = -startPoint;
                     }
 
-                    TweenMax.fromTo(element, 0.3, { left: startPoint }, {left: 0, onComplete: done });
+                    TweenMax.fromTo(element, 0.4, Elastic.easeInOut, { left: startPoint }, {left: 0, onComplete: done });
+                    
                 }
                 else {
                     done();

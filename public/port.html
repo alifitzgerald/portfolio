@@ -9,13 +9,17 @@
    <div class="col-md-4">
       <nav class="nav">
         <div class="wrapper">
-            <ul class="dots">
+           
             <a class="arrow next" ng-click="prevSlide()"><i class="fa fa-angle-left fa-4x arrow"></i></a>
-                <li class="dot" ng-repeat="photo in photos" ng-hide="!isCurrentSlideIndex($index)">
-                    <h1><a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
-                      ng-click="setCurrentSlideIndex($index);">{{photo.name}}</a></h1></li>
+                <ul class="dots" ng-repeat="photo in photos" ng-hide="!isCurrentSlideIndex($index)">
+                    <li><a href="#" ng-class="{'active':isCurrentSlideIndex($index)} slide-animation"
+                      ng-click="setCurrentSlideIndex($index);"><b>{{photo.name}}</b></a></li>
+                       <li><a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                      ng-click="setCurrentSlideIndex($index);">{{photo.description}}</a></li>
+
+                 </ul>
             <a class="arrow prev" ng-click="nextSlide()"><i class="fa fa-angle-right fa-4x arrow"></i></a>
-            </ul>
+            
         </div>
     </nav>
 </div>
