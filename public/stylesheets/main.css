@@ -85,3 +85,14 @@
   left:50px;
 }
 
+.floating {
+  padding-top: 2%; 
+  z-index: -1;
+  width: 100%;
+}
+
+.dots {
+  list-style: none; 
+  color: #96002E;
+}
+

@@ -1,13 +1,43 @@
-angular.module('portfolio', ["ngAnimate", "ngTouch"])
+var myapp = angular.module('portfolio', ['ngAnimate', 'ngTouch', 'ui.router'])
 
+    myapp.config(function($stateProvider, $urlRouterProvider){
+      
+      // For any unmatched url, send to /route1
+      $urlRouterProvider.otherwise("/")
+      
+      $stateProvider
+        .state('Code', {
+            url: "/code",
+            templateUrl: "port.html"
+        })
+          .state('route1.list', {
+              url: "/list",
+              templateUrl: "route1.list.html",
+              controller: function($scope){
+                $scope.items = ["A", "List", "Of", "Items"];
+              }
+          })
+          
+        .state('route2', {
+            url: "/route2",
+            templateUrl: "route2.html"
+        })
+          .state('route2.list', {
+              url: "/list",
+              templateUrl: "route2.list.html",
+              controller: function($scope){
+                $scope.things = ["A", "Set", "Of", "Things"];
+              }
+          })
+    })
 
-.controller('MainCtrl', function($scope) {
+myapp.controller('MainCtrl', function($scope) {
         
 
         $scope.categories = [
         {"id": 0, "name": "Code"},
         {"id": 1, "name": "Design"},
-        {"id": 2, "name": "Marketing"}
+        {"id": 2, "name": "Marketing"},
         ];
 
         
@@ -34,10 +64,16 @@ angular.module('portfolio', ["ngAnimate", "ngTouch"])
 
         $scope.photos = [
             {"id": 0,
-            "photo":"images/canteen.png"
+            "photo":"images/bowl-xtra.png",
+            "name": "Canteen & Co."
             },
             {"id": 1,
-            "photo":"images/dog.png"   
+            "photo":"images/dog-xtra.png",
+            "name" : "Swag Dog Walking"   
+            },
+            {"id": 2,
+            "photo":"images/rbggame-xtra.png" ,
+            "name" : "Notorious RBGGame"  
             }
         ];
   
@@ -55,9 +91,22 @@ angular.module('portfolio', ["ngAnimate", "ngTouch"])
         }
 
 
+        function setCurrentPhoto(photo) {
+            $scope.currentPhoto = photo;
+        }
+
+        function isCurrentPhoto(photo) {
+            return $scope.currentPhoto !== null && photo.name === $scope.currentPhoto.name;
+        }
+
+
         $scope.currentCategory = null; 
         $scope.setCurrentCategory = setCurrentCategory;
         $scope.isCurrentCategory = isCurrentCategory;
+
+        $scope.currentPhoto = null; 
+        $scope.setCurrentPhoto = setCurrentPhoto;
+        $scope.isCurrentPhoto = isCurrentPhoto;
 
 
         $scope.direction = 'left';
@@ -72,17 +121,17 @@ angular.module('portfolio', ["ngAnimate", "ngTouch"])
             return $scope.currentIndex === index;
         };
 
-        $scope.prevSlide = function () {
+        $scope.prevSlide = function (photo) {
             $scope.direction = 'left';
             $scope.currentIndex = ($scope.currentIndex < $scope.photos.length - 1) ? ++$scope.currentIndex : 0;
         };
 
-        $scope.nextSlide = function () {
+        $scope.nextSlide = function (photo) {
             $scope.direction = 'right';
             $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.photos.length - 1;
         };
     })
-    .animation('.slide-animation', function () {
+    myapp.animation('.slide-animation', function () {
         return {
             beforeAddClass: function (element, className, done) {
                 var scope = element.scope();
