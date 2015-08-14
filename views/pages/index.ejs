@@ -10,14 +10,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <ul class="nav nav-tabs nav-justified">
+          <ul class="nav nav-pills nav-justified">
             <li ng-repeat="category in categories" ng-class="{'active':isCurrentCategory(category)}">
               <a ng-click="setCurrentCategory(category)">{{category.name}}</a>
             </li>
           </ul>
         </div>
-        <div ng-repeat="frame in frames | filter:{category:currentCategory.name}">
-        <div ng-if="currentCategory != null" ng-include="frame.url"></div>
+        <div ng-repeat="frame in frames | filter:{category:currentCategory.name}" >
+        <div ng-if="currentCategory != null" ng-include="frame.url" class="frame-fade"></div>
           
         </div>
       </div>
