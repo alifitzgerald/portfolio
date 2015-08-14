@@ -4,43 +4,37 @@
   <% include ../partials/header.ejs %>
 </head>
 
-<body ng-controller="MainCtrl">
-
+<body ng-controller="MainCtrl" class="background">
+<!--<div class="jumbotron text-center">-->
+  <div class="bgimage area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs nav-justified">
+            <li ng-repeat="category in categories" ng-class="{'active':isCurrentCategory(category)}">
+              <a ng-click="setCurrentCategory(category)">{{category.name}}</a>
+            </li>
+          </ul>
+        </div>
+        <div ng-repeat="frame in frames | filter:{category:currentCategory.name}">
+        <div ng-if="currentCategory != null" ng-include="frame.url"></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
  
 
-<div class="jumbotron text-center">
-  <div class="container">
-    <div class="col-md-12">
-     <a href="#" ng-click="setCurrentCategory(null)"><img src="/images/my-name-3.png" class="img-responsive center-block"></a>
-    </div>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><i class="fa fa-twitter"></i></a>
-    <a type="button" class="btn btn-lg btn-default" href="https://github.com/heroku/node-js-getting-started"><i class="fa fa-github"></i></a>
-     <a type="button" class="btn btn-lg btn-default" href="https://github.com/heroku/node-js-getting-started"><i class="fa fa-envelope-o"></i></a>
-  </div>
-</div>
 
-<div class="bgimage area">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <ul class="nav nav-tabs nav-justified">
-          <li ng-repeat="category in categories" ng-class="{'active':isCurrentCategory(category)}">
-            <a ng-click="setCurrentCategory(category)">{{category.name}}</a>
-          </li>
-        </ul>
-      </div>
-      <div ng-repeat="frame in frames | filter:{category:currentCategory.name}">
-      <div ng-if="currentCategory != null" ng-include="frame.url"></div>
-        
-      </div>
-    </div>
-  </div>
-</div>
+
+<div ui-view></div>
+
+
 
 
     <!-- video block goes here -->
 
 
-
+</div>
 </body>
 </html>

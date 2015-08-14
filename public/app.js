@@ -6,9 +6,9 @@ var myapp = angular.module('portfolio', ['ngAnimate', 'ngTouch', 'ui.router'])
       $urlRouterProvider.otherwise("/")
       
       $stateProvider
-        .state('Code', {
-            url: "/code",
-            templateUrl: "port.html"
+        .state('home', {
+            url: "/",
+            templateUrl: "templates/home.html"
         })
           .state('route1.list', {
               url: "/list",
@@ -46,19 +46,19 @@ myapp.controller('MainCtrl', function($scope) {
         {"id": 0,
         "frame": "Canteen and Co.", 
         "category": "Code", 
-        "url": "port.html",
+        "url": "templates/port.html",
         },
 
         {"id": 1,
          "frame": "This is Design Stuff", 
          "category": "Design",
-         "url" : 'design.html',
+         "url" : 'templates/design.html',
         },
 
         {"id": 2, 
         "frame": "This is Marketing Stuff", 
         "category": "Marketing",
-        "url": "marketing.html",
+        "url": "templates/marketing.html",
         }
         ];
 
