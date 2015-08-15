@@ -40,6 +40,8 @@ myapp.controller('MainCtrl', function($scope) {
         {"id": 2, "name": "Marketing"},
         ];
 
+        $scope.numbers = [0,1,2]
+
         
 
         $scope.frames = [
@@ -66,17 +68,20 @@ myapp.controller('MainCtrl', function($scope) {
             {"id": 0,
             "photo":"images/bowl-xtra.png",
             "name": "Canteen & Co.", 
-            "description": "Angularjs // Node // Express // Bootstrap"
+            "description": "Angularjs // Node // Express // Bootstrap",
+            "url" : "http://www.canteenandco.com"
             },
             {"id": 1,
             "photo":"images/dog-xtra.png",
             "name" : "Swag Dog Walking",
-            "description": "RubyRails // Foundation"   
+            "description": "RubyRails // Foundation",  
+            "url" : "http://www.swagdogwalking.com" 
             },
             {"id": 2,
             "photo":"images/rbggame-xtra.png" ,
             "name" : "Notorious RBGGame",
-            "description": "Swift"  
+            "description": "Swift",
+            "url" : "http://www.notoriousrbggame.herokuapp.com"  
             }
         ];
   

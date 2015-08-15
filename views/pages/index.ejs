@@ -16,8 +16,14 @@
             </li>
           </ul>
         </div>
+
+         <div class="row">
+          <div class="col-md-12">
+            <a href="#" ng-click="setCurrentCategory(null)"><img src="/images/my-name-math.png" class="img-responsive center-block trial"></a>
+          </div>
+          </div>
         <div ng-repeat="frame in frames | filter:{category:currentCategory.name}" >
-        <div ng-if="currentCategory != null" ng-include="frame.url" class="frame-fade"></div>
+        <div ng-if="currentCategory != null" ng-include="frame.url" class="number"></div>
           
         </div>
       </div>
@@ -28,9 +34,13 @@
 
 
 <div ui-view></div>
-
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 footer">
+      <% include ../partials/footer.ejs %>
+    </div>
+  </div>
+</div>
 
     <!-- video block goes here -->
 

@@ -1,150 +1,27 @@
-.content
-{
-   width: 100%;
-   height: 370px;
-   position: relative;
-   margin: 20px auto;
-   overflow: hidden;
-
-   .tab 
-   {
-      overflow: hidden;
-      padding: 1em 4em;
-      height: 370px;
-
-      font-size: 2em;
-      line-height: 1.4;
-   }
-
-   .tab1
-   {
-      background: #34495E;
-      color: #B4B4B4;
-   }
-
-   .tab2
-   {
-      background: #E74C3C;
-      color: #fff;
-   }
-
-   .tab3
-   {
-      background: #bbc3c3;
-      color: #404D5B;
-   }
-
-   .tab4
-   {
-      background: #F9F7F6;
-   }
+.number {
+  transition: 0.4s linear all;
 }
 
-.slide-left.ng-enter, .slide-left.ng-leave,
-.slide-right.ng-enter,.slide-right.ng-leave,
-.slide-top.ng-enter,.slide-top.ng-leave,
-.slide-bottom.ng-enter,.slide-bottom.ng-leave,
-{
-  position: absolute;
-  top: 0; 
-  right: 0; 
-  bottom: 0; 
-  left: 0;
-
-  .transition(.3s ease-in-out);
+.number.ng-enter {
+  opacity: 0;
 }
 
-// 
-//  SLIDE LEFT
-// 
-
-.slide-left
-{
-  &.ng-enter.ng-enter-active 
-  {
-    .transform(translateX(0));
-  }
-  
-  &.ng-leave 
-  {
-    z-index: 100;
-    .transform(translateX(0));
-  }
-  &.ng-leave-active 
-  {
-    .transform(translateX(-100%));
-  }
+.trial {
+  padding-top: 2%; 
+  padding-bottom: 5px; 
 }
 
-
-
-// 
-//  SLIDE RIGHT
-// 
-
-.slide-right
-{
-  &.ng-enter 
-  {
-    .transform(translateX(-100%));
-  } 
-
-  &.ng-enter-active, 
-  {
-    position: absolute;
-    .transform(translateX(0));
-  }
-
-  &.ng-leave-active 
-  {
-    .transform(translateX(100%));
-  }
+.footer {
+  text-align: center; 
 }
 
-
-// 
-//  SLIDE TOP
-// 
-
-.slide-top
-{
-  &.ng-enter 
-  {
-    .transform(translateY(-100%));
-  } 
-
-  &.ng-enter-active, 
-  {
-    position: absolute;
-    .transform(translateY(0));
-  }
-
-  &.ng-leave-active 
-  {
-    .transform(translateY(100%));
-  }
+.btn {
+  border: none;
+  margin: 10px; 
+  background-color: #D0D6C9;
+  box-shadow: 3px 3px 1px #92968D;
 }
 
-
-// 
-//  SLIDE BOTTOM
-// 
-
-.slide-bottom
-{
-  &.ng-enter-active 
-  {
-    .transform(translateY(0));
-  }
-
-  &.ng-leave 
-  {
-    z-index: 100;
-    .transform(translateY(0));
-  }
-
-  &.ng-leave-active
-  {
-    .transform(translateY(-100%));
-  }
+.fa {
+  color: #545651;
 }
